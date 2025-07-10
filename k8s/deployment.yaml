@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: api-escolar
-        image: caio10/api-escolar:db867b91832ec9f41162eed5b14b110a68af2058
+        image: caio10/api-escolar:26e044bbb4372b2a7b67ba9e5048c8bb40a6c8a0
         ports:
         - containerPort: 8000
         env:
