@@ -15,9 +15,6 @@ COPY requirements.txt .
 # Instalar dependências Python
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Criar diretório para o banco de dados
-RUN mkdir -p /app/db
-
 # Copiar código da aplicação
 COPY . .
 
@@ -25,4 +22,4 @@ COPY . .
 EXPOSE 8000
 
 # Comando para executar a aplicação
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["sh", "-c", "mkdir -p /app/db && uvicorn app:app --host 0.0.0.0 --port 8000"]
