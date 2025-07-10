@@ -43,7 +43,7 @@ spec:
               key: API_VERSION
         volumeMounts:
         - name: database-storage
-          mountPath: /app
+          mountPath: /app/db
         resources:
           requests:
             memory: "128Mi"
