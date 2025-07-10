@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: api-escolar-config
-  namespace: api-escolar
+  namespace: gestao-escolar
 data:
   DATABASE_URL: "sqlite:///app/escola.db"
   LOG_LEVEL: "INFO"

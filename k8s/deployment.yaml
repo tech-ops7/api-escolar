@@ -2,11 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api-escolar
-  namespace: api-escolar
+  namespace: gestao-escolar
   labels:
     app: api-escolar
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: api-escolar
@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: api-escolar
-        image: api-escolar:latest
+        image: caio10/api-escolar:latest
         ports:
         - containerPort: 8000
         env:
