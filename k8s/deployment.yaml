@@ -41,29 +41,29 @@ spec:
             configMapKeyRef:
               name: api-escolar-config
               key: API_VERSION
-        volumeMounts:
+        volumeMounts: # monta o volume de dados do banco de dados
         - name: database-storage
-          mountPath: /app/db
+          mountPath: /app/db # caminho onde o volume será montado
         resources:
           requests:
-            memory: "128Mi"
-            cpu: "100m"
+            memory: "128Mi" # memória mínima
+            cpu: "100m" # cpu mínima
           limits:
-            memory: "256Mi"
-            cpu: "200m"
-        livenessProbe:
+            memory: "256Mi" # memória máxima
+            cpu: "200m" # cpu máxima
+        livenessProbe: # verifica se o container está vivo
           httpGet:
-            path: /docs
-            port: 8000
-          initialDelaySeconds: 30
-          periodSeconds: 10
-        readinessProbe:
+            path: /docs # caminho para verificar se o container está vivo
+            port: 8000 # porta do container
+          initialDelaySeconds: 30 # tempo de inicialização
+          periodSeconds: 10 # tempo de verificação
+        readinessProbe: # verifica se o container está pronto
           httpGet:
-            path: /docs
-            port: 8000
-          initialDelaySeconds: 5
-          periodSeconds: 5
-      volumes:
-      - name: database-storage
-        persistentVolumeClaim:
-          claimName: api-escolar-pvc 
+            path: /docs # caminho para verificar se o container está pronto
+            port: 8000 # porta do container
+          initialDelaySeconds: 5 # tempo de inicialização
+          periodSeconds: 5 # tempo de verificação
+      volumes: # volumes para o container
+      - name: database-storage # nome do volume
+        persistentVolumeClaim: # tipo de volume
+          claimName: api-escolar-pvc # nome do volume persistente

@@ -8,9 +8,9 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-  - port: 80
-    targetPort: 8000
+  - port: 80 # porta do serviço
+    targetPort: 8000 # porta do container
     protocol: TCP
     name: http
   selector:
-    app: api-escolar 
+    app: api-escolar # seleciona o pod com o label app=api-escolar

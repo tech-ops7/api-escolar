@@ -8,11 +8,11 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - host: api-escolar.local
+  - host: api-escolar.com.br # host do ingress
     http:
       paths:
-      - path: /
-        pathType: Prefix
+      - path: / # caminho do ingress
+        pathType: Prefix # tipo de caminho
         backend:
           service:
             name: api-escolar-service
