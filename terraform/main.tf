@@ -19,7 +19,7 @@ terraform {
 provider "google" {
   project = var.project_id
   region  = var.region
-  zone    = var.zone
+  zone    = var.zone    
 }
 
 # Habilitar a API do Artifact Registry
@@ -46,16 +46,16 @@ resource "google_artifact_registry_repository" "api_escolar" {
 }
 
 # Configurar permissões IAM para o registry
-resource "google_artifact_registry_repository_iam_member" "viewer" {
-  location   = google_artifact_registry_repository.api_escolar.location
-  repository = google_artifact_registry_repository.api_escolar.name
-  role       = "roles/artifactregistry.reader"
-  member     = "serviceAccount:${var.service_account_email}"
-}
+# resource "google_artifact_registry_repository_iam_member" "viewer" {
+#   location   = google_artifact_registry_repository.api_escolar.location
+#   repository = google_artifact_registry_repository.api_escolar.name
+#   role       = "roles/artifactregistry.reader"
+#   member     = "serviceAccount:${var.service_account_email}"
+# }
 
-resource "google_artifact_registry_repository_iam_member" "writer" {
-  location   = google_artifact_registry_repository.api_escolar.location
-  repository = google_artifact_registry_repository.api_escolar.name
-  role       = "roles/artifactregistry.writer"
-  member     = "serviceAccount:${var.service_account_email}"
-}
+# resource "google_artifact_registry_repository_iam_member" "writer" {
+#   location   = google_artifact_registry_repository.api_escolar.location
+#   repository = google_artifact_registry_repository.api_escolar.name
+#   role       = "roles/artifactregistry.writer"
+#   member     = "serviceAccount:${var.service_account_email}"
+# }

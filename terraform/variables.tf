@@ -2,7 +2,6 @@
 variable "project_id" {
   description = "ID do projeto Google Cloud"
   type        = string
-  default     = "gcp-lab-408213"
 }
 
 variable "region" {
@@ -20,5 +19,4 @@ variable "zone" {
 variable "service_account_email" {
   description = "Email da service account que terá acesso ao registry"
   type        = string
-  default     = ""
 }

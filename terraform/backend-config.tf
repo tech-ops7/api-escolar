@@ -4,9 +4,9 @@
 # Para usar esta configuração:
 # terraform init -backend-config=backend-config.tf
 
-terraform {
-  backend "gcs" {
-    bucket = "terraform-state-api-escolar"
-    prefix = "artifact-registry"
-  }
-}
+# terraform {
+#   backend "gcs" {
+#     bucket = "terraform-state-api-escolar"
+#     prefix = "artifact-registry"
+#   }
+# }

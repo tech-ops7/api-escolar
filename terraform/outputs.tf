@@ -29,13 +29,13 @@ output "docker_push_example" {
   value       = "docker push ${google_artifact_registry_repository.api_escolar.location}-docker.pkg.dev/${var.project_id}/${google_artifact_registry_repository.api_escolar.repository_id}/api-escolar:latest"
 }
 
-# Outputs do bucket do state
-output "terraform_state_bucket" {
-  description = "Nome do bucket criado para o state do Terraform"
-  value       = google_storage_bucket.terraform_state.name
-}
+# Outputs do bucket do state (comentados pois o bucket não está sendo criado)
+# output "terraform_state_bucket" {
+#   description = "Nome do bucket criado para o state do Terraform"
+#   value       = google_storage_bucket.terraform_state.name
+# }
 
-output "terraform_state_bucket_url" {
-  description = "URL do bucket do state"
-  value       = "gs://${google_storage_bucket.terraform_state.name}"
-}
+# output "terraform_state_bucket_url" {
+#   description = "URL do bucket do state"
+#   value       = "gs://${google_storage_bucket.terraform_state.name}"
+# }
