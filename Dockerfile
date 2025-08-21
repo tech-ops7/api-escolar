@@ -1,25 +1,24 @@
-# Usar imagem Python oficial como base
-FROM python:3.11-slim
+# Imagem base
+FROM python:3.11-slim-bookworm AS base
 
-# Definir diretório de trabalho
 WORKDIR /app
 
-# Instalar dependências do sistema
-RUN apt-get update && apt-get install -y \
+# Dependências do sistema (somente o essencial)
+RUN apt-get update && apt-get install -y --no-install-recommends \
     gcc \
     && rm -rf /var/lib/apt/lists/*
 
-# Copiar arquivo de dependências
+# Copiar requirements primeiro (melhora cache)
 COPY requirements.txt .
 
-# Instalar dependências Python
+# Instalar dependências
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copiar código da aplicação
 COPY . .
 
-# Expor porta 8000
+# Expor porta
 EXPOSE 8000
 
-# Comando para executar a aplicação
+# Rodar aplicação
 CMD ["sh", "-c", "mkdir -p /app/db && uvicorn app:app --host 0.0.0.0 --port 8000"]
