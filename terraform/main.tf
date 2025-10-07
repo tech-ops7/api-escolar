@@ -45,6 +45,8 @@ resource "google_artifact_registry_repository" "api_escolar" {
   depends_on = [google_project_service.artifact_registry]
 }
 
+
+
 # Configurar permissões IAM para o registry
 # resource "google_artifact_registry_repository_iam_member" "viewer" {
 #   location   = google_artifact_registry_repository.api_escolar.location
